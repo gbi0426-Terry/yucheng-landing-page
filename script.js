@@ -6,18 +6,6 @@
       event: eventName,
       ...(params || {})
     });
-
-    if (window.fbq && window.yuchengTrackingConfig.metaPixelId) {
-      if (eventName === "lead_form_submit") {
-        window.fbq("track", "Lead", params || {});
-      } else {
-        window.fbq("trackCustom", eventName, params || {});
-      }
-    }
-
-    if (window.gtag && window.yuchengTrackingConfig.ga4MeasurementId) {
-      window.gtag("event", eventName, params || {});
-    }
   }
 
   function initHeaderState() {

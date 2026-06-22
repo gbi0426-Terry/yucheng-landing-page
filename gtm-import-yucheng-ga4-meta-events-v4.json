@@ -1,0 +1,316 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-06-22 10:05:00",
+  "containerVersion": {
+    "path": "accounts/6361628756/containers/255891289/versions/0",
+    "accountId": "6361628756",
+    "containerId": "255891289",
+    "container": {
+      "accountId": "6361628756",
+      "containerId": "255891289",
+      "publicId": "GTM-PTVVPS9D",
+      "name": "yuchengpro.com",
+      "usageContext": [
+        "WEB"
+      ]
+    },
+    "tag": [
+      {
+        "accountId": "6361628756",
+        "containerId": "255891289",
+        "tagId": "101",
+        "name": "GA4 - Configuration",
+        "type": "gaawc",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "measurementId",
+            "value": "G-V4SV6SMRRH"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "sendPageView",
+            "value": "true"
+          }
+        ],
+        "firingTriggerId": [
+          "2147479553"
+        ]
+      },
+      {
+        "accountId": "6361628756",
+        "containerId": "255891289",
+        "tagId": "102",
+        "name": "GA4 - Lead - Form Submit",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "G-V4SV6SMRRH"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "generate_lead"
+          }
+        ],
+        "firingTriggerId": [
+          "201"
+        ]
+      },
+      {
+        "accountId": "6361628756",
+        "containerId": "255891289",
+        "tagId": "103",
+        "name": "GA4 - LINE Click",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "G-V4SV6SMRRH"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "line_click"
+          }
+        ],
+        "firingTriggerId": [
+          "202"
+        ]
+      },
+      {
+        "accountId": "6361628756",
+        "containerId": "255891289",
+        "tagId": "104",
+        "name": "GA4 - CTA Click",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "G-V4SV6SMRRH"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "cta_click"
+          }
+        ],
+        "firingTriggerId": [
+          "203"
+        ]
+      },
+      {
+        "accountId": "6361628756",
+        "containerId": "255891289",
+        "tagId": "105",
+        "name": "Meta Pixel - PageView",
+        "type": "img",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "url",
+            "value": "https://www.facebook.com/tr?id=3983576251949201&ev=PageView&noscript=1"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "useCacheBuster",
+            "value": "true"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "cacheBusterQueryParam",
+            "value": "gtmcb"
+          }
+        ],
+        "firingTriggerId": [
+          "2147479553"
+        ]
+      },
+      {
+        "accountId": "6361628756",
+        "containerId": "255891289",
+        "tagId": "106",
+        "name": "Meta Pixel - Lead - Form Submit",
+        "type": "img",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "url",
+            "value": "https://www.facebook.com/tr?id=3983576251949201&ev=Lead&noscript=1"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "useCacheBuster",
+            "value": "true"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "cacheBusterQueryParam",
+            "value": "gtmcb"
+          }
+        ],
+        "firingTriggerId": [
+          "201"
+        ]
+      },
+      {
+        "accountId": "6361628756",
+        "containerId": "255891289",
+        "tagId": "107",
+        "name": "Meta Pixel - LINE Click",
+        "type": "img",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "url",
+            "value": "https://www.facebook.com/tr?id=3983576251949201&ev=line_click&noscript=1"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "useCacheBuster",
+            "value": "true"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "cacheBusterQueryParam",
+            "value": "gtmcb"
+          }
+        ],
+        "firingTriggerId": [
+          "202"
+        ]
+      },
+      {
+        "accountId": "6361628756",
+        "containerId": "255891289",
+        "tagId": "108",
+        "name": "Meta Pixel - CTA Click",
+        "type": "img",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "url",
+            "value": "https://www.facebook.com/tr?id=3983576251949201&ev=cta_click&noscript=1"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "useCacheBuster",
+            "value": "true"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "cacheBusterQueryParam",
+            "value": "gtmcb"
+          }
+        ],
+        "firingTriggerId": [
+          "203"
+        ]
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "6361628756",
+        "containerId": "255891289",
+        "triggerId": "201",
+        "name": "CE - lead_form_submit",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "lead_form_submit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "6361628756",
+        "containerId": "255891289",
+        "triggerId": "202",
+        "name": "CE - line_click",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "line_click"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "6361628756",
+        "containerId": "255891289",
+        "triggerId": "203",
+        "name": "CE - cta_click",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "cta_click"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "builtInVariable": [
+      {
+        "accountId": "6361628756",
+        "containerId": "255891289",
+        "type": "PAGE_URL",
+        "name": "Page URL"
+      },
+      {
+        "accountId": "6361628756",
+        "containerId": "255891289",
+        "type": "PAGE_PATH",
+        "name": "Page Path"
+      },
+      {
+        "accountId": "6361628756",
+        "containerId": "255891289",
+        "type": "CLICK_URL",
+        "name": "Click URL"
+      },
+      {
+        "accountId": "6361628756",
+        "containerId": "255891289",
+        "type": "CLICK_TEXT",
+        "name": "Click Text"
+      }
+    ]
+  }
+}
