@@ -17,6 +17,18 @@ GTM is installed with container ID:
 GTM-PTVVPS9D
 ```
 
+GA4 is installed with Measurement ID:
+
+```txt
+G-V4SV6SMRRH
+```
+
+Meta Pixel is installed with Pixel ID:
+
+```txt
+3983576251949201
+```
+
 Tracked events pushed to `dataLayer`:
 
 - `cta_click`
@@ -29,8 +41,8 @@ GA4 and Meta Pixel placeholders are in `index.html`:
 ```js
 window.yuchengTrackingConfig = {
   gtmId: "GTM-PTVVPS9D",
-  ga4MeasurementId: "",
-  metaPixelId: ""
+  ga4MeasurementId: "G-V4SV6SMRRH",
+  metaPixelId: "3983576251949201"
 };
 ```
 
