@@ -173,9 +173,39 @@
   }
 
   async function submitLead(payload) {
-    // Replace this function when Supabase or CRM credentials are confirmed.
-    // Suggested next step: POST payload to an edge function, then let the server write CRM/Supabase.
-    window.localStorage.setItem("yucheng_last_lead_preview", JSON.stringify(payload));
+    const SUPABASE_URL = "https://zkwmwpmjcxylzdpvzmxa.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_-8QH9CV-10_e_YAzYJ1qAg_alcNZ_cI";
+
+    const body = {
+      name: payload.name || null,
+      phone: payload.phone || null,
+      line_id: payload.lineId || null,
+      email: payload.email || null,
+      company: payload.company || null,
+      industry: payload.companyType || null,
+      company_size: payload.employeeSize || null,
+      services: payload.needs.length ? payload.needs : null,
+      appointment_date: payload.appointmentDate || null,
+      appointment_time: payload.appointmentTime || null,
+      source: "yucheng_landing"
+    };
+
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/yucheng_leads`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": SUPABASE_ANON_KEY,
+        "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+        "Prefer": "return=minimal"
+      },
+      body: JSON.stringify(body)
+    });
+
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(err);
+    }
+
     return { ok: true };
   }
 
