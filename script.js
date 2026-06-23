@@ -245,8 +245,13 @@
             revenue: payload.revenue,
             needs: payload.needs.join(",")
           });
-          if (status) status.textContent = "已收到您的預約資料，顧問將盡快與您聯繫。";
+          if (status) status.textContent = "";
           form.reset();
+          const modal = document.getElementById("successModal");
+          if (modal) {
+            modal.hidden = false;
+            document.getElementById("successModalClose").focus();
+          }
         } catch (error) {
           console.error(error);
           if (status) status.textContent = "目前送出失敗，請稍後再試或改用 LINE 聯繫。";
@@ -260,8 +265,20 @@
     });
   }
 
+  function initSuccessModal() {
+    const modal = document.getElementById("successModal");
+    if (!modal) return;
+    document.getElementById("successModalClose").addEventListener("click", () => {
+      modal.hidden = true;
+    });
+    modal.querySelector(".success-modal__backdrop").addEventListener("click", () => {
+      modal.hidden = true;
+    });
+  }
+
   initHeaderState();
   initSlider();
   initTrackingLinks();
   initForm();
+  initSuccessModal();
 })();

@@ -1249,6 +1249,67 @@ dd {
   font-weight: 800;
 }
 
+.success-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.success-modal[hidden] { display: none; }
+.success-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.success-modal__box {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 32px;
+  max-width: 360px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+}
+.success-modal__icon {
+  width: 64px;
+  height: 64px;
+  background: #2e7d32;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 32px;
+  line-height: 64px;
+  margin: 0 auto 16px;
+}
+.success-modal__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 12px;
+}
+.success-modal__body {
+  color: #444;
+  line-height: 1.7;
+  margin: 0 0 24px;
+}
+.success-modal__line {
+  display: block;
+  margin-bottom: 12px;
+}
+.success-modal__close {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #666;
+  width: 100%;
+}
+.success-modal__close:hover { background: #f5f5f5; }
+
 .trust-band {
   display: grid;
   gap: 24px;
