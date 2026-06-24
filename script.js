@@ -20,11 +20,9 @@
     window.addEventListener("scroll", setState, { passive: true });
   }
 
-  function initSlider() {
-    const slides = Array.from(document.querySelectorAll("[data-slide]"));
-    const dots = Array.from(document.querySelectorAll("[data-dot]"));
-    const prev = document.querySelector('[data-slider="prev"]');
-    const next = document.querySelector('[data-slider="next"]');
+  function initHeroBgSlider() {
+    const slides = Array.from(document.querySelectorAll(".hero-bg-slide"));
+    const dots = Array.from(document.querySelectorAll(".hero-bg-dot"));
     if (!slides.length) return;
 
     let current = 0;
@@ -32,37 +30,59 @@
 
     const show = (index) => {
       current = (index + slides.length) % slides.length;
-      slides.forEach((slide, slideIndex) => {
-        slide.classList.toggle("active", slideIndex === current);
-      });
-      dots.forEach((dot, dotIndex) => {
-        dot.classList.toggle("active", dotIndex === current);
-      });
+      slides.forEach((s, i) => s.classList.toggle("active", i === current));
+      dots.forEach((d, i) => d.classList.toggle("active", i === current));
     };
 
     const restart = () => {
-      window.clearInterval(timer);
-      timer = window.setInterval(() => show(current + 1), 5200);
+      clearInterval(timer);
+      timer = setInterval(() => show(current + 1), 5200);
     };
-
-    prev?.addEventListener("click", () => {
-      show(current - 1);
-      restart();
-    });
-
-    next?.addEventListener("click", () => {
-      show(current + 1);
-      restart();
-    });
 
     dots.forEach((dot) => {
       dot.addEventListener("click", () => {
-        show(Number(dot.dataset.dot));
+        show(Number(dot.dataset.slide));
         restart();
       });
     });
 
     restart();
+  }
+
+  function initCaseCarousel() {
+    const clip = document.querySelector(".case-row-clip");
+    const row = document.querySelector(".case-row");
+    const prev = document.querySelector(".case-arrow-prev");
+    const next = document.querySelector(".case-arrow-next");
+    if (!row || !prev || !next) return;
+
+    const cards = Array.from(row.querySelectorAll(".case-card"));
+    let idx = 0;
+
+    const visibleCount = () => {
+      const clipW = clip ? clip.offsetWidth : row.offsetWidth;
+      const cardW = cards[0]?.offsetWidth || 260;
+      const gap = parseInt(getComputedStyle(row).gap) || 16;
+      return Math.max(1, Math.round((clipW + gap) / (cardW + gap)));
+    };
+
+    const show = (newIdx) => {
+      const max = Math.max(0, cards.length - visibleCount());
+      idx = Math.max(0, Math.min(newIdx, max));
+      const cardW = cards[0]?.offsetWidth || 260;
+      const gap = parseInt(getComputedStyle(row).gap) || 16;
+      row.style.transform = `translateX(-${idx * (cardW + gap)}px)`;
+      prev.disabled = idx === 0;
+      next.disabled = idx >= max;
+    };
+
+    row.style.transition = "transform 380ms ease";
+
+    prev.addEventListener("click", () => show(idx - 1));
+    next.addEventListener("click", () => show(idx + 1));
+    window.addEventListener("resize", () => show(idx));
+
+    show(0);
   }
 
   function initTrackingLinks() {
@@ -277,7 +297,8 @@
   }
 
   initHeaderState();
-  initSlider();
+  initHeroBgSlider();
+  initCaseCarousel();
   initTrackingLinks();
   initForm();
   initSuccessModal();
