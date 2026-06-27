@@ -198,7 +198,16 @@
                 <option>51 人以上</option>
               </select>
             </div>
-            <input type="hidden" name="revenue" value="首屏諮詢表單">
+            <div class="form-row">
+              <label>公司年營收</label>
+              <div class="option-grid">
+                <label><input type="radio" name="revenue" value="500萬以下"> 500萬以下</label>
+                <label><input type="radio" name="revenue" value="500-3000萬"> 500-3000萬</label>
+                <label><input type="radio" name="revenue" value="3000萬-1億"> 3000萬-1億</label>
+                <label><input type="radio" name="revenue" value="1億以上"> 1億以上</label>
+              </div>
+              <small class="field-error" data-error-for="revenue"></small>
+            </div>
             <fieldset>
               <legend>我想了解的服務</legend>
               <div class="option-grid">
