@@ -91,20 +91,14 @@ address { font-style: normal; }
 /* ===================== HERO ===================== */
 .hero {
   position: relative;
-  min-height: 735px;
-  overflow: hidden;
-  color: #fff;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.34fr) minmax(360px, 0.76fr);
   gap: clamp(30px, 5vw, 66px);
   align-items: start;
+  min-height: 735px;
   padding: 112px clamp(34px, 6vw, 88px) 42px;
-  width: 100%;
+  overflow: hidden;
+  color: #fff;
 }
 
 /* Background slider */
@@ -165,10 +159,12 @@ address { font-style: normal; }
 .hero-content {
   position: relative;
   z-index: 1;
+  max-width: 850px;
   padding-top: 18px;
 }
 
 .hero h1 {
+  max-width: 700px;
   margin-bottom: 18px;
   line-height: 1.1;
 }
@@ -225,7 +221,7 @@ address { font-style: normal; }
 
 /* Hero problem panel */
 .hero-problem-panel {
-  width: 100%;
+  width: min(100%, 760px);
   padding: 22px 26px 20px;
   border: 1px solid rgba(218,166,86,0.32);
   border-radius: 8px;
@@ -289,8 +285,8 @@ address { font-style: normal; }
 .hero-form-panel {
   position: relative;
   z-index: 1;
-  width: 100%;
-  justify-self: stretch;
+  width: min(100%, 445px);
+  justify-self: end;
   padding: 24px 28px 26px;
   border-radius: 10px;
   background: rgba(255,255,255,0.97);
@@ -1280,7 +1276,6 @@ address { font-style: normal; }
   align-items: center;
   gap: 18px;
   padding-right: 36px;
-  border-right: 1px solid rgba(214,155,67,0.4);
 }
 
 .trust-band h2 {
@@ -1295,6 +1290,7 @@ address { font-style: normal; }
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-left: 1px solid rgba(214,155,67,0.4);
   padding-left: 36px;
 }
 
@@ -1318,7 +1314,6 @@ address { font-style: normal; }
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
   width: 100%;
-  margin: 0;
 }
 
 .trust-stats div {
@@ -1489,10 +1484,9 @@ address { font-style: normal; }
 
   .header-actions { justify-content: flex-end; }
 
-  .hero { min-height: auto; }
-
-  .hero-inner {
+  .hero {
     grid-template-columns: 1fr;
+    min-height: auto;
     padding: 96px 24px 32px;
   }
 
@@ -1541,7 +1535,7 @@ address { font-style: normal; }
 
   .site-header { padding: 10px 16px; }
 
-  .hero-inner { padding: 86px 16px 24px; }
+  .hero { padding: 86px 16px 24px; }
 
   .hero-tags { grid-template-columns: 1fr 1fr; gap: 10px 16px; }
 
