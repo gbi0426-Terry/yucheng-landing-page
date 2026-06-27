@@ -207,6 +207,8 @@
       services: payload.needs.length ? payload.needs : null,
       appointment_date: payload.appointmentDate || null,
       appointment_time: payload.appointmentTime || null,
+      revenue: payload.revenue || null,
+      message: payload.message || null,
       source: "yucheng_landing"
     };
 
