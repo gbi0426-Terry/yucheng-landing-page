@@ -20,9 +20,11 @@
     window.addEventListener("scroll", setState, { passive: true });
   }
 
-  function initHeroBgSlider() {
-    const slides = Array.from(document.querySelectorAll(".hero-bg-slide"));
-    const dots = Array.from(document.querySelectorAll(".hero-bg-dot"));
+  function initSlider() {
+    const slides = Array.from(document.querySelectorAll("[data-slide]"));
+    const dots = Array.from(document.querySelectorAll("[data-dot]"));
+    const prev = document.querySelector('[data-slider="prev"]');
+    const next = document.querySelector('[data-slider="next"]');
     if (!slides.length) return;
 
     let current = 0;
@@ -30,59 +32,37 @@
 
     const show = (index) => {
       current = (index + slides.length) % slides.length;
-      slides.forEach((s, i) => s.classList.toggle("active", i === current));
-      dots.forEach((d, i) => d.classList.toggle("active", i === current));
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("active", slideIndex === current);
+      });
+      dots.forEach((dot, dotIndex) => {
+        dot.classList.toggle("active", dotIndex === current);
+      });
     };
 
     const restart = () => {
-      clearInterval(timer);
-      timer = setInterval(() => show(current + 1), 5200);
+      window.clearInterval(timer);
+      timer = window.setInterval(() => show(current + 1), 5200);
     };
+
+    prev?.addEventListener("click", () => {
+      show(current - 1);
+      restart();
+    });
+
+    next?.addEventListener("click", () => {
+      show(current + 1);
+      restart();
+    });
 
     dots.forEach((dot) => {
       dot.addEventListener("click", () => {
-        show(Number(dot.dataset.slide));
+        show(Number(dot.dataset.dot));
         restart();
       });
     });
 
     restart();
-  }
-
-  function initCaseCarousel() {
-    const clip = document.querySelector(".case-row-clip");
-    const row = document.querySelector(".case-row");
-    const prev = document.querySelector(".case-arrow-prev");
-    const next = document.querySelector(".case-arrow-next");
-    if (!row || !prev || !next) return;
-
-    const cards = Array.from(row.querySelectorAll(".case-card"));
-    let idx = 0;
-
-    const visibleCount = () => {
-      const clipW = clip ? clip.offsetWidth : row.offsetWidth;
-      const cardW = cards[0]?.offsetWidth || 260;
-      const gap = parseInt(getComputedStyle(row).gap) || 16;
-      return Math.max(1, Math.round((clipW + gap) / (cardW + gap)));
-    };
-
-    const show = (newIdx) => {
-      const max = Math.max(0, cards.length - visibleCount());
-      idx = Math.max(0, Math.min(newIdx, max));
-      const cardW = cards[0]?.offsetWidth || 260;
-      const gap = parseInt(getComputedStyle(row).gap) || 16;
-      row.style.transform = `translateX(-${idx * (cardW + gap)}px)`;
-      prev.disabled = idx === 0;
-      next.disabled = idx >= max;
-    };
-
-    row.style.transition = "transform 380ms ease";
-
-    prev.addEventListener("click", () => show(idx - 1));
-    next.addEventListener("click", () => show(idx + 1));
-    window.addEventListener("resize", () => show(idx));
-
-    show(0);
   }
 
   function initTrackingLinks() {
@@ -193,41 +173,9 @@
   }
 
   async function submitLead(payload) {
-    const SUPABASE_URL = "https://zkwmwpmjcxylzdpvzmxa.supabase.co";
-    const SUPABASE_ANON_KEY = "sb_publishable_-8QH9CV-10_e_YAzYJ1qAg_alcNZ_cI";
-
-    const body = {
-      name: payload.name || null,
-      phone: payload.phone || null,
-      line_id: payload.lineId || null,
-      email: payload.email || null,
-      company: payload.company || null,
-      industry: payload.companyType || null,
-      company_size: payload.employeeSize || null,
-      services: payload.needs.length ? payload.needs : null,
-      appointment_date: payload.appointmentDate || null,
-      appointment_time: payload.appointmentTime || null,
-      revenue: payload.revenue || null,
-      message: payload.message || null,
-      source: "yucheng_landing"
-    };
-
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/yucheng_leads`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": SUPABASE_ANON_KEY,
-        "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-        "Prefer": "return=minimal"
-      },
-      body: JSON.stringify(body)
-    });
-
-    if (!res.ok) {
-      const err = await res.text();
-      throw new Error(err);
-    }
-
+    // Replace this function when Supabase or CRM credentials are confirmed.
+    // Suggested next step: POST payload to an edge function, then let the server write CRM/Supabase.
+    window.localStorage.setItem("yucheng_last_lead_preview", JSON.stringify(payload));
     return { ok: true };
   }
 
@@ -267,13 +215,8 @@
             revenue: payload.revenue,
             needs: payload.needs.join(",")
           });
-          if (status) status.textContent = "";
+          if (status) status.textContent = "已收到您的預約資料，顧問將盡快與您聯繫。";
           form.reset();
-          const modal = document.getElementById("successModal");
-          if (modal) {
-            modal.hidden = false;
-            document.getElementById("successModalClose").focus();
-          }
         } catch (error) {
           console.error(error);
           if (status) status.textContent = "目前送出失敗，請稍後再試或改用 LINE 聯繫。";
@@ -287,21 +230,8 @@
     });
   }
 
-  function initSuccessModal() {
-    const modal = document.getElementById("successModal");
-    if (!modal) return;
-    document.getElementById("successModalClose").addEventListener("click", () => {
-      modal.hidden = true;
-    });
-    modal.querySelector(".success-modal__backdrop").addEventListener("click", () => {
-      modal.hidden = true;
-    });
-  }
-
   initHeaderState();
-  initHeroBgSlider();
-  initCaseCarousel();
+  initSlider();
   initTrackingLinks();
   initForm();
-  initSuccessModal();
 })();
