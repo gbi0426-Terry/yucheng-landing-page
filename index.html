@@ -9,6 +9,9 @@
     <meta property="og:description" content="預約一對一財務服務，免費獲得企業財務診斷報告。">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/hero-bg.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <!-- GTM + Tracking Config -->
     <script>
@@ -130,20 +133,9 @@
               <small class="field-error" data-error-for="email"></small>
             </div>
             <div class="form-row">
-              <label for="hero-company">公司名稱 <span class="req">*</span></label>
-              <input id="hero-company" name="company" type="text" autocomplete="organization" placeholder="請輸入公司名稱" required>
+              <label for="hero-company">公司名稱及統編 <span class="req">*</span></label>
+              <input id="hero-company" name="company" type="text" autocomplete="organization" placeholder="請輸入公司名稱及統一編號" required>
               <small class="field-error" data-error-for="company"></small>
-            </div>
-            <div class="form-row">
-              <label for="hero-company-type">公司產業類別</label>
-              <select id="hero-company-type" name="companyType">
-                <option value="">請選擇產業類別</option>
-                <option>製造業</option>
-                <option>餐飲零售</option>
-                <option>科技服務</option>
-                <option>專業服務</option>
-                <option>其他</option>
-              </select>
             </div>
             <div class="form-row">
               <label>公司年營收</label>
@@ -157,10 +149,10 @@
             <fieldset>
               <legend>目前最想解決的問題</legend>
               <div class="option-grid">
-                <label><input type="checkbox" name="needs" value="融資貸款">融資貸款</label>
                 <label><input type="checkbox" name="needs" value="財務分析規劃">財務分析規劃</label>
-                <label><input type="checkbox" name="needs" value="政府補助申請">政府補助申請</label>
                 <label><input type="checkbox" name="needs" value="稅務節流">稅務節流</label>
+                <label><input type="checkbox" name="needs" value="融資貸款">融資貸款</label>
+                <label><input type="checkbox" name="needs" value="政府補助申請">政府補助申請</label>
                 <label><input type="checkbox" name="needs" value="資產配置">資產配置</label>
               </div>
             </fieldset>
@@ -359,27 +351,27 @@
           <article>
             <img class="value-icon-img" src="assets/icons-why/experience.png" alt="">
             <h3>專業顧問團隊</h3>
-            <p>財務、金融、會計專業團隊</p>
+            <p>財務・金融・會計專業團隊<br>提供一站式解決方案</p>
           </article>
           <article>
             <img class="value-icon-img" src="assets/icons-why/custom.png" alt="">
             <h3>客製化策略</h3>
-            <p>依企業需求量身打造</p>
+            <p>依企業需求量身打造<br>最適合的財務策略</p>
           </article>
           <article>
             <img class="value-icon-img" src="assets/icons-why/team.png" alt="">
             <h3>豐富實戰經驗</h3>
-            <p>協助眾多中小企業成功取得資金與補助</p>
+            <p>協助眾多中小企業<br>成功取得資金與補助</p>
           </article>
           <article>
             <img class="value-icon-img" src="assets/icons-why/integrate.png" alt="">
-            <h3>專案整合資源</h3>
-            <p>整合銀行及政府資源</p>
+            <h3>專業整合資源</h3>
+            <p>整合銀行與政府資源<br>提升申請成功率</p>
           </article>
           <article>
             <img class="value-icon-img" src="assets/icons-why/partner.png" alt="">
             <h3>長期合作夥伴</h3>
-            <p>陪伴企業成長</p>
+            <p>不只解決問題，更是<br>陪伴企業成長的夥伴</p>
           </article>
         </div>
       </section>
@@ -506,7 +498,7 @@
           <div class="founder-columns">
             <div>
               <strong>專業背景</strong>
-              <p>主要擅長財富管理顧問，同時本身是創業家與實業家。顧問團隊整合會計師、資產規劃師、資深保險顧問、稅務律師、企業融資專家、國際移民資源，從法律、稅務到財管，提供一站式、全方位的財務整合服務。</p>
+              <p>畢業於溫哥華經濟系。超過17年資深金融從業經驗，現擔任昱成資產管理顧問有限公司負責人。主要擅長財富管理顧問，同時本身是創業家與實業家。顧問團隊整合會計師、資產規劃師、資深保險顧問、稅務律師、企業融資專家、國際移民資源，從法律、稅務到財管，提供一站式、全方位的財務整合服務。</p>
             </div>
             <div>
               <strong>成就經歷</strong>
@@ -551,37 +543,6 @@
         </article>
       </section>
 
-      <!-- 08 銀行合作夥伴 -->
-      <section class="section partner-section" aria-labelledby="partner-title">
-        <div class="section-heading inline-heading">
-          <div class="compact-heading">
-            <p class="section-number">08</p>
-            <h2 id="partner-title">銀行與財務會計資源合作夥伴</h2>
-          </div>
-          <p>32+ 銀行授信資源 × 財務顧問團隊 × 會計稅務專家</p>
-        </div>
-        <div class="partner-logo-grid" aria-label="合作銀行">
-          <img src="assets/banks/taishin.png" alt="台新銀行">
-          <img src="assets/banks/ctbc.png" alt="中國信託">
-          <img src="assets/banks/tcb.png" alt="合作金庫銀行">
-          <img src="assets/banks/sinopac.png" alt="永豐銀行">
-          <img src="assets/banks/esun.png" alt="玉山銀行">
-          <img src="assets/banks/ub.png" alt="聯邦銀行">
-          <img src="assets/banks/firstbank.png" alt="第一銀行">
-          <img src="assets/banks/huanan.png" alt="華南銀行">
-          <img src="assets/banks/chb.png" alt="彰化銀行">
-          <img src="assets/banks/fubon.png" alt="台北富邦銀行">
-          <img src="assets/banks/dbs.png" alt="星展銀行 DBS">
-          <img src="assets/banks/feib.png" alt="遠東國際商業銀行">
-          <img src="assets/banks/obank.png" alt="王道銀行">
-          <img src="assets/banks/tbb.png" alt="臺灣中小企業銀行">
-          <img src="assets/banks/cathay.png" alt="國泰世華銀行">
-          <img src="assets/banks/deloitte.png" alt="Deloitte 勤業眾信">
-          <img src="assets/banks/pwc.png" alt="PwC 資誠">
-          <img src="assets/banks/kpmg.png" alt="KPMG 安侯建業">
-        </div>
-      </section>
-
       <!-- Trust Band -->
       <section class="trust-band" aria-labelledby="trust-title">
         <div class="trust-left">
@@ -608,9 +569,9 @@
           <img src="assets/logo-horizontal.png" alt="YU CHENG 昱成資產管理顧問">
         </div>
         <address class="footer-contact">
-          <span>📞 02-2657-9693</span>
+          <span>☎ 02-2657-9693</span>
           <span>✉ wealth@yuchengpro.com</span>
-          <span>📍 臺北市內湖區文湖街 82 號 2 樓</span>
+          <span>◎ 臺北市內湖區文湖街 82 號 2 樓</span>
         </address>
       </div>
       <p class="footer-copy">© 2024 昱成資產管理顧問股份有限公司 版權所有</p>
